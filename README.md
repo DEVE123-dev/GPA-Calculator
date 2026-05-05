@@ -173,7 +173,7 @@ If you find this project helpful, please consider:
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
+- GitHub: [@DEVE123-dev](https://github.com/DEVE123-dev)
 - Website: [yourwebsite.com](https://yourwebsite.com)
 
 ## 🙏 Acknowledgments
@@ -184,6 +184,6 @@ If you find this project helpful, please consider:
 
 ---
 
-Made with ❤️ and ☕ by [Your Name]
+Made with ❤️ and ☕ by deve(smash ur aunty)
 
 **⭐ Star this repo if you find it helpful!**
