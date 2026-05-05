@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- Primary Meta Tags -->
+  <title>GPA Calculator - 5-Point Academic Grading Scale</title>
+  <meta name="title" content="GPA Calculator - 5-Point Academic Grading Scale" />
+  <meta name="description" content="Calculate your Grade Point Average with a beautiful, modern interface. Features auto-save, PDF export, and real-time calculations. Free and open source!" />
+  <meta name="keywords" content="GPA calculator, grade point average, academic calculator, student tools, grades, university, college" />
+  <meta name="author" content="Your Name" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourusername.github.io/gpa-calculator/" />
+  <meta property="og:title" content="GPA Calculator - 5-Point Academic Grading Scale" />
+  <meta property="og:description" content="Calculate your Grade Point Average with a beautiful, modern interface. Features auto-save, PDF export, and real-time calculations." />
+  <meta property="og:image" content="https://yourusername.github.io/gpa-calculator/preview.png" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://yourusername.github.io/gpa-calculator/" />
+  <meta property="twitter:title" content="GPA Calculator - 5-Point Academic Grading Scale" />
+  <meta property="twitter:description" content="Calculate your Grade Point Average with a beautiful, modern interface. Features auto-save, PDF export, and real-time calculations." />
+  <meta property="twitter:image" content="https://yourusername.github.io/gpa-calculator/preview.png" />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="page-bg"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-mark">GPA</div>
+      <div class="header-text">
+        <h1>Grade Point Calculator</h1>
+        <p>5-Point Academic Grading Scale</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- GPA Result Panel -->
+    <section class="result-panel" id="resultPanel">
+      <div class="result-item primary">
+        <span class="result-label">Cumulative GPA</span>
+        <span class="result-value" id="gpaDisplay">—</span>
+        <span class="result-sub" id="gpaBand"></span>
+      </div>
+      <div class="result-divider"></div>
+      <div class="result-item secondary">
+        <span class="result-label">Total Credit Points</span>
+        <span class="result-value small" id="totalCredits">0</span>
+      </div>
+      <div class="result-item secondary">
+        <span class="result-label">Grade Points Earned</span>
+        <span class="result-value small" id="totalPoints">0</span>
+      </div>
+    </section>
+
+    <!-- Scale Reference -->
+    <section class="scale-bar">
+      <span class="scale-label">Grading Scale:</span>
+      <span class="scale-chip hd">HD = 5</span>
+      <span class="scale-chip d">D = 4</span>
+      <span class="scale-chip c">C = 3</span>
+      <span class="scale-chip p">P = 2</span>
+      <span class="scale-chip cp">CP = 1</span>
+      <span class="scale-chip f">F = 0</span>
+    </section>
+
+    <!-- Table -->
+    <section class="table-section">
+      <div class="table-header">
+        <h2>Subjects / Units</h2>
+        <button class="btn btn-reset" id="resetBtn" title="Reset all">
+          ↺ Reset All
+        </button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="subject-table" id="subjectTable">
+          <thead>
+            <tr>
+              <th class="col-num">#</th>
+              <th class="col-name">Subject / Unit Name <span class="optional">(optional)</span></th>
+              <th class="col-grade">Grade</th>
+              <th class="col-credits">Credit Points <span class="optional">(optional)</span></th>
+              <th class="col-points">Grade Points</th>
+              <th class="col-remove"></th>
+            </tr>
+          </thead>
+          <tbody id="subjectBody">
+            <!-- rows injected by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-footer">
+        <button class="btn btn-add" id="addBtn" title="Add new subject (Ctrl+Enter)">
+          <span class="add-icon">+</span> Add Subject
+        </button>
+        <button class="btn btn-export" id="exportBtn" title="Export as PDF (Ctrl+E)">
+          <span class="export-icon">▤</span> Export PDF
+        </button>
+        <button class="btn btn-save" id="saveBtn" title="Save data as JSON (Ctrl+S)">
+          <span class="save-icon">↓</span> Save Data
+        </button>
+        <button class="btn btn-load" id="loadBtn" title="Load data from JSON">
+          <span class="load-icon">↑</span> Load Data
+        </button>
+        <input type="file" id="fileInput" accept=".json" style="display: none;" />
+        <p class="helper-text" id="helperText"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>GPA = Σ(Grade Value × Credit Points) ÷ Σ(Credit Points) &nbsp;·&nbsp; Rows with no grade selected are excluded</p>
+    <p class="auto-save-status" id="autoSaveStatus">Auto-saved</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
